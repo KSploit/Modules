@@ -24,6 +24,7 @@ _G.ChatCommands = {
 		for Command,Func in pairs(_G.ChatCommands) do
 			Message=Message.."\n	".._G.Prefix..Command
 		end
+		Message=Message.."\n"
 		SendClientMessage(Message,Color3.new(0.521569, 1, 0.466667))
 	end,
 }
