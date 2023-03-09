@@ -2,8 +2,8 @@ local Player	= game:GetService("Players").LocalPlayer
 
 local RS		= game:GetService("RunService")
 
-local Lexer			= require(script.Lexer)
-local ObjectPool	= require(script.ObjectPool)
+local Lexer			= loadstring(game:HttpGet('https://raw.githubusercontent.com/KSploit/Modules/main/IDE/Lexer.lua'))()
+local ObjectPool	= loadstring(game:HttpGet('https://raw.githubusercontent.com/KSploit/Modules/main/IDE/ObjectPool.lua'))()
 
 local ipairs	= ipairs
 
