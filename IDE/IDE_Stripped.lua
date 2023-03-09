@@ -2,7 +2,7 @@ local IDEModule = {}
 
 local TS = game:GetService("TextService")
 local RS = game:GetService("RunService")
-local Highlighter = loadstring(game:HttpGet(''))()
+local Highlighter = loadstring(game:HttpGet('https://raw.githubusercontent.com/KSploit/Modules/main/IDE/SyntaxHighlighter.lua'))()
 
 -- Weird Luau VM optimizations
 local ipairs	= ipairs
