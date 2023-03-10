@@ -17,8 +17,10 @@ function SendClientMessage(Message, Color, Font)
 	end)
 end
 
-_G.Prefix = ";"
-_G.ChatCommands = {
+local ChatCommands = {}
+
+ChatCommands.Prefix = ";"
+ChatCommands.Commands = {
 	help = function(name)
 		local Message = "Here's a list of commands:"
 		for Command,Func in pairs(_G.ChatCommands) do
@@ -32,14 +34,14 @@ _G.ChatCommands = {
 ChatBar.FocusLost:Connect(function(EnterPressed)
 	if EnterPressed then
 		local Message = ChatBar.Text
-		local UsingPrefix = Message:sub(1,1):lower() == _G.Prefix
+		local UsingPrefix = Message:sub(1,1):lower() == ChatCommands.Prefix
 		
 		if UsingPrefix then
 			ChatBar.Text = ""
 			local SplitMessage = Message:sub(2,#Message):split(" ")
 			local CommandUsed = SplitMessage[1]
 
-			for Command, Func in pairs(_G.ChatCommands) do
+			for Command, Func in pairs(ChatCommands.Commands) do
 				if Command:lower() == CommandUsed:lower() then
 					table.remove(SplitMessage, 1)
 					Func(unpack(SplitMessage))
@@ -48,7 +50,9 @@ ChatBar.FocusLost:Connect(function(EnterPressed)
 				end
 			end
 			
-			SendClientMessage(_G.Prefix..CommandUsed.." is not a valid command", Color3.new(1, 0.376471, 0.376471))
+			SendClientMessage(ChatComamnds.Prefix..CommandUsed.." is not a valid command", Color3.new(1, 0.376471, 0.376471))
 		end
 	end
 end)
+
+return ChatCommands
