@@ -23,8 +23,8 @@ ChatCommands.Prefix = ";"
 ChatCommands.Commands = {
 	help = function(name)
 		local Message = "Here's a list of commands:"
-		for Command,Func in pairs(_G.ChatCommands) do
-			Message=Message.."\n	".._G.Prefix..Command
+		for Command,Func in pairs(ChatCommands.Commands) do
+			Message=Message.."\n	"..ChatCommands.Prefix..Command
 		end
 		Message=Message.."\n"
 		SendClientMessage(Message,Color3.new(0.521569, 1, 0.466667))
